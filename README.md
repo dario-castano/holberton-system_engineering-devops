@@ -1,2 +1,2 @@
-# holberton-system_engineering-devops
-Systems engineering + devops repo
+# About this repo
+Holberton's systems engineering + devops repo
