@@ -1,0 +1,2 @@
+#!/bin/bash
+LC_COLLATE=C find . -name *.gif -type f -exec ls -1a {} + | rev | cut -d / -f 1 | cut -d . -f 2,3 | rev
