@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# display all proccesess using a tree
+ps aux --forest

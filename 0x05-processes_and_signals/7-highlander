@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# create an infinite loop and catches when SIGTERM are triggered
+
+function sigproc() {
+	echo "I am invincible!!!"
+}
+
+trap sigproc SIGTERM
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
