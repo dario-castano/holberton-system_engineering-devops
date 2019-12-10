@@ -11,3 +11,9 @@ file_line { 'refuse_pass':
   path   => '~/.ssh/confg',
   line   => 'PasswordAuthentication no',
 }
+
+file_line { 'check_no_pass_auth':
+  ensure => absent,
+  path   => '~/.ssh/confg',
+  line   => 'PasswordAuthentication yes',
+}
