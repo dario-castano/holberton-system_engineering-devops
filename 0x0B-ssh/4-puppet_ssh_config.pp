@@ -1,13 +1,13 @@
 # Check for file lines in ssh_config
 
-file_line { 'holberton_key':
+file_line { 'Turn off passwd auth':
+  ensure => present,
+  path   => '~/.ssh/confg',
+  line   => 'PasswordAuthentication no',
+}
+
+file_line { 'Declare identity file':
   ensure => present,
   path   => '~/.ssh/config',
   line   => 'IdentityFile ~/.ssh/holberton',
-}
-
-file_line { 'check_no_pass_auth':
-  ensure => absent,
-  path   => '~/.ssh/confg',
-  line   => 'PasswordAuthentication yes',
 }
