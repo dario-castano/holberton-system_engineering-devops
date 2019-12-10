@@ -6,12 +6,6 @@ file_line { 'holberton_key':
   line   => 'IdentityFile ~/.ssh/holberton',
 }
 
-file_line { 'refuse_pass':
-  ensure => present,
-  path   => '~/.ssh/confg',
-  line   => 'PasswordAuthentication no',
-}
-
 file_line { 'check_no_pass_auth':
   ensure => absent,
   path   => '~/.ssh/confg',
