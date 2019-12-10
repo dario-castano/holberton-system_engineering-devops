@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Installs NGINX with all bells and whistles
+
+ssh -t -i ~/.ssh/holberton ubuntu@35.229.53.195 'sudo apt-get install -y nginx'
+ssh -t -i ~/.ssh/holberton ubuntu@35.229.53.195 'echo Holberton School | sudo tee /var/www/html/index.nginx-debian.html'
