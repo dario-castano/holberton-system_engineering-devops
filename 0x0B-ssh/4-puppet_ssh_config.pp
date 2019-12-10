@@ -1,8 +1,8 @@
 # Check for file lines in ssh_config
 
-file_line { 'Turn off passwd auth':
+file_line { 'Turn off passwd auth (local)':
   ensure => present,
-  path   => '~/.ssh/confg',
+  path   => '~/.ssh/config',
   line   => 'PasswordAuthentication no',
 }
 
