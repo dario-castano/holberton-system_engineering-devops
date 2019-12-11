@@ -4,8 +4,8 @@
 LINE="\tlocation /redirect_me {\n\t\treturn 301 https://www.bing.com/;\n\t}"
 FILE="/etc/nginx/sites-available/default"
 
-apt-get update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-sed -i "/server_name _;/a $LINE" "$FILE"
-service nginx restart
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo sed -i "/server {/i $LINE" "$FILE"
+sudo service nginx restart
