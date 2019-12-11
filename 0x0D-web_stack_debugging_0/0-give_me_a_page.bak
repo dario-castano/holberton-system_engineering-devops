@@ -1,4 +1,0 @@
-docker run -p 8080:80 -d --name 265 -it holbertonschool/265-0
-docker exec -it 265 sh -c "echo ServerName localhost | sudo tee /etc/apache2/conf-available/fqdn.conf"
-docker exec -it 265 sh -c "sudo a2enconf fqdn"
-docker exec -it 265 sh -c "sudo /etc/init.d/apache2 restart"
