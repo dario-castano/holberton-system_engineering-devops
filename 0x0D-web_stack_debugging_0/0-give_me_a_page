@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # Restarts the server
 
-service apache2 restart
+echo ServerName localhost | sudo tee /etc/apache2/conf-available/fqdn.conf
+sudo a2enconf fqdn
+sudo /etc/init.d/apache2 restart
