@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+# Installs NGINX and add X-Served-By header
 apt-get -y update
 apt-get install -y nginx
-sudo ufw allow 'Nginx HTTP'
+ufw allow 'Nginx HTTP'
 sed -i '/sendfile on;/a \\tadd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
 service nginx restart
