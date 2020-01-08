@@ -5,13 +5,11 @@ DOMAIN=$1
 SUBDOMAIN=$2
 
 function get_ip {
-	local RETURN=$(dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $5}')
-	echo "$RETURN"
+	dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $5}'
 }
 
 function get_rec {
-	local RETURN=$(dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $4}')
-	echo "$RETURN"
+	dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $4}'
 }
 
 if [[ -z "$SUBDOMAIN" ]]
