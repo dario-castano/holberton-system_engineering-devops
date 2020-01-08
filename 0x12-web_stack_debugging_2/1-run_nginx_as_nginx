@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Switch user to nginx
-sudo sed 's/#user www-data;/user nginx;/' | sudo tee /etc/nginx/nginx.conf
-sudo sed 's/listen 80 default_server;/listen 8080 default_server;/' | sudo tee /etc/nginx/sites-available/default
-sudo sed 's/listen [::]:80 default_server ipv6only=on;/listen [::]:8080 default_server ipv6only=on;/' | sudo tee /etc/nginx/sites-available/default
-sudo service nginx restart
+sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-available/default
+sed -i 's/listen [::]:80 default_server ipv6only=on;/listen [::]:8080 default_server ipv6only=on;/' /etc/nginx/sites-available/default
+service nginx restart
