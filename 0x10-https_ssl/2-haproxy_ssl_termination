@@ -42,7 +42,7 @@ frontend http_front
 	default_backend http_back
 
 frontend https_front
-	bind *:443 ssl crt /etc/haproxy/ssl/kyc-senora.tech.pem
+	bind *:443 ssl crt /etc/haproxy/ssl/www.kyc-senora.tech.pem
 	reqadd X-Forwarded-Proto:\ https
 	default_backend http_back
 	
