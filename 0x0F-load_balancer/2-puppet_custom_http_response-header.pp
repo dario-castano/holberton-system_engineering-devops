@@ -1,3 +1,5 @@
+# Configure a nginx server with header
+
 exec{'update_install_apt':
   command => "sudo apt-get update && sudo apt-get install -y nginx"
 }
