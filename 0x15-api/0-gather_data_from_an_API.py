@@ -2,8 +2,8 @@
 """
 Gather data from an API
 """
-from sys import argv
 import requests
+from sys import argv
 
 
 if __name__ == '__main__':
@@ -25,4 +25,4 @@ if __name__ == '__main__':
 
     for task in task_out:
         if task.get('completed') is True:
-            print('\t {}'.format(task.get('title')))
+            print('     {}'.format(task.get('title')))
