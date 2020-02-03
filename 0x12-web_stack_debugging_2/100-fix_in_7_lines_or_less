@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Switch user to nginx to 8080
+pkill -f apache2 
+find /etc/nginx -type f -name 'nginx.conf' -exec chmod 644 {} \+ -exec chown nginx:nginx {} \+
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+su - nginx -c 'service nginx restart'

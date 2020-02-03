@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Check for a subdomain
+
+DOMAIN=$1
+SUBDOMAIN=$2
+
+function get_ip {
+	dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $5}'
+}
+
+function get_rec {
+	dig "$2.$1" | awk '/;; ANSWER SECTION:/{getline; print $4}'
+}
+
+if [[ -z "$SUBDOMAIN" ]]
+then
+	for subd in "www" "lb-01" "web-01" "web-02"
+	do
+		RECORD=$(get_rec "$DOMAIN" "$subd")
+		IP=$(get_ip "$DOMAIN" "$subd")
+		echo "The subdomain $subd is a $RECORD record and points to $IP"
+	done
+else
+	RECORD=$(get_rec "$DOMAIN" "$SUBDOMAIN")
+	IP=$(get_ip "$DOMAIN" "$SUBDOMAIN")
+	echo "The subdomain $SUBDOMAIN is a $RECORD record and points to $IP"
+fi
