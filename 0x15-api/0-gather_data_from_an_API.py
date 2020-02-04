@@ -2,7 +2,6 @@
 """
 Gather data from an API
 """
-import json
 import requests
 from sys import argv
 
@@ -21,7 +20,7 @@ if __name__ == '__main__':
     done_tasks = len([x for x in task_out if x.get('completed') is True])
 
     print('Employee {} is done with tasks({}/{}):'
-          .format(user_out.get('name'), all_tasks, done_tasks))
+          .format(user_out.get('name'), done_tasks, all_tasks))
 
     for task in task_out:
         if task.get('completed') is True:
