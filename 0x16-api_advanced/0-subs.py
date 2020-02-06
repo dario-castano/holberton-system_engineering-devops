@@ -13,9 +13,11 @@ def number_of_subscribers(subreddit):
     base_url = 'http://www.reddit.com/'
     resource = 'r/{}/about.json'.format(subreddit)
     req = requests.get(base_url + resource,
-                       headers={'User-Agent': fake_agent}).json()
+                       headers={'User-Agent': fake_agent})
 
-    if req is None or req.get('kind') == 'Listing':
-        return 0
-    elif req.get('kind') == 't5':
-        return req.get('data').get('subscribers')
+    if req.status_code != 404:
+        out = req.json()
+        if out.get('kind') == 't5':
+            return out.get('data').get('subscribers')
+
+    return 0
