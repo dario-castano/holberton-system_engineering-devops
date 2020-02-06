@@ -20,5 +20,6 @@ def top_ten(subreddit):
         if out.get('data').get('dist') > 0:
             for post in out.get('data').get('children'):
                 print(post.get('data').get('title'))
-        else:
-            print('None')
+            return
+    print('None')
+    return
